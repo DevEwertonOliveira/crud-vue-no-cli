@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@3.x/css/materialdesignicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css"
+      rel="stylesheet"
+    />
+    <title>Vendas High-Tech</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@3.x/css/materialdesignicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css"
+      rel="stylesheet"
+    />
+  </head></router-view>
+  <body>
+    <div id="app">
+      <v-app>
+        <nav-bar></nav-bar>        
+        <v-content>
+          <router-view></router-view>
+        </v-content>
+      </v-app>
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script src="components/NavBar.js"></script>
+    <script src="services/ClientService.js"></script>
+    <script src="components/FormClient.js"></script>
+    <script src="components/ListClient.js"></script>
+    <script src="views/Home.js"></script>
+    <script src="views/Clientes.js"></script>
+    <script src="views/DetalheCliente.js"></script>
+    <script>
+      const router = new VueRouter({
+        // mode: 'history',
+        routes: [
+          { path: "/", component: Home },
+          { path: "/clientes", component: Clientes },
+          {
+            path: "/detalhe-cliente",
+            name: "detalhe",
+            component: DetalheCliente
+          }
+        ]
+      }); // instância do VueRouter
+
+      //instanciando vuetify
+      const vuetify = new Vuetify()
+
+      new Vue({
+        el: "#app",
+        router,
+        vuetify,
+        components: {
+          NavBar
+        },
+        data: {
+          title: "Vendas High-Tech",
+          venda: {}
+        }
+      });
+    </script>
+  </body>
+</html>
